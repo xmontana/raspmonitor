@@ -19,7 +19,7 @@ You will need al latest PHP 5.3.3. and a database driver. Raspmonitor is compati
 
 Clone the repository:
 
-    git clone http://
+    git clone git@github.com:xmontana/raspmonitor.git
 
 Check Symfony2 compatibility with your sistem:
 
