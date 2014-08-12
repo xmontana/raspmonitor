@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}RaspMonitor{% endblock %}</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+    <link rel="icon" type="image/png" href="/favicon-196x196.png" sizes="196x196">
+    <link rel="icon" type="image/png" href="/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+    {% block head_styles %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/raspberrymonitor/bootstrap/css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/raspberrymonitor/font-awesome/css/font-awesome.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/raspberrymonitor/css/local.css') }}" />
+    {% endblock head_styles %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    {% block head_scripts %}
+    <script type="text/javascript" src="{{ asset('bundles/raspberrymonitor/js/jquery-1.10.2.min.j') }}s"></script>
+    <script type="text/javascript" src="{{ asset('bundles/raspberrymonitor/bootstrap/js/bootstrap.min.js') }}"></script>
+    {% endblock head_scripts %}
+</head>
+<body>
+
+<div id="wrapper">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">{{ 'Toggle navigation'|trans }}</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ path('dashboard') }}">RaspMonitor</a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav side-nav">
+                <li><a href="{{ path('dashboard') }}"><i class="fa fa-bullseye"></i> {{ 'Dashboard'|trans }}</a></li>
+                <li><a href="{{ path('logs') }}"><i class="fa fa-book"></i> {{ 'Log'|trans }}</a></li>
+                <li><a href="{{ path('alarms') }}"><i class="fa fa-bell"></i> {{ 'Alarms'|trans }}</a></li>
+                <li><a href="{{ path('admin_site') }}"><i class="fa fa-gear"></i> {{ 'Config'|trans }}</a></li>
+
+            </ul>
+            <ul class="nav navbar-nav navbar-right navbar-user">
+
+                <li class="dropdown user-dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{ app.user }}<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ path('fos_user_profile_show') }}"><i class="fa fa-user"></i> {{ 'Profile'|trans }}</a></li>
+
+                        <li class="divider"></li>
+                        <li><a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-power-off"></i> {{ 'Log Out'|trans }}</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <div id="page-wrapper">
+        {% block content %}{% endblock content %}
+    </div>
+</div>
+{% block bottom_scripts %}
+{% endblock bottom_scripts %}
+</body>
+</html>
+
+

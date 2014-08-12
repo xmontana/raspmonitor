@@ -1,0 +1,83 @@
+{% extends "::base.html.twig" %}
+
+{% block content %}
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title"><i class="fa fa-signal"></i> {{ 'Server Status'|trans }}</h3>
+        </div>
+
+        <!-- Table -->
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="text-center">{{ 'Status'|trans }}</th>
+                    <th>{{ 'Site'|trans }}</th>
+                    <th class="text-center">{{ 'Errors'|trans }}</th>
+                    <th>{{ 'Last Check'|trans }}</th>
+                    <th>{{ 'Actions'|trans }}</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for site in sites  %}
+            <tr>
+                <td class="text-center"><a href="{{ path('dashboard_server', {'id': site.id} ) }}"><span id="server_{{ site.id }}">{{ site.errors|status }}</span></a></td>
+                <td><a href="{{ path('dashboard_server', {'id': site.id} ) }}"><i class="{{ site.icon }}"></i> {{ site.name }}</a></td>
+
+                <td class="text-center"><span id="error_{{ site.id }}">{{ site.errors }}</span>/{{ threshold }}</td>
+                <td><span id="lastcheck_{{ site.id }}">{% if site.lastcheck %}{{ site.lastcheck|date('d/m H:i:s') }}{% else %}-{% endif %}</span></td>
+                <td>
+                    <a href="{{ path('dashboard_server', {'id': site.id} ) }}"><i class="fa fa-bar-chart-o  fa-border"></i></a>
+                    <a href="{{ site.url }}" target="_blank"><i class="fa fa-share-square-o  fa-border"></i></a>
+                    <a href="{{ path('admin_site_edit', { 'id': site.id }) }}"><i class="fa fa-pencil fa-border"></i></a>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock content %}
+
+
+{% block bottom_scripts %}
+    <script type="text/javascript">
+
+        $(function() {
+
+            var dataurl = '{{ path('api_servers_status') }}';
+
+            function onDataReceived(series) {
+                $.each(series, function(key, val) {
+                    $.each(val, function(index, val1) {
+                        if (val1.errors == 0){
+                            $('#server_'+index).html('<i class=\"fa fa-circle text-success \"></i>');
+                        } else if ( val1.errors < {{ threshold }} ){
+                            $('#server_'+index).html('<i class=\"fa fa-circle text-warning \"></i>');
+                        } else if (val1.errors >= {{ threshold }} ){
+                            $('#server_'+index).html('<i class=\"fa fa-circle text-danger \"></i>');
+                        }
+
+                        $('#error_'+index).html( val1.errors);
+                        $('#lastcheck_'+index).html( val1.lastcheck);
+                    });
+                });
+            }
+
+            var doStuff= function (){
+                $.ajax({
+                    url: dataurl,
+                    type: "GET",
+                    dataType: "json",
+                    success: onDataReceived
+                });
+            }
+            doStuff();
+
+            setInterval( doStuff, 30000 );
+
+
+        });
+
+    </script>
+
+
+{% endblock bottom_scripts %}

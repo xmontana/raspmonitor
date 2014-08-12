@@ -1,0 +1,49 @@
+{% extends '::layout_mini.html.twig' %}
+
+
+{% block fos_user_content %}
+    {% trans_default_domain 'FOSUserBundle' %}
+
+ {% if error %}
+ <div class="row">
+                <div class="col-sm-12">
+              
+
+                </div>
+            </div>
+
+{% endif %}
+
+
+<div class="col-md-4 col-md-offset-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{ 'Por favor, introduzca sus datos de acceso'|trans }}</h3>
+                </div>
+                <div class="panel-body">
+                    <form accept-charset="UTF-8" role="form" method="post" action="{{ path("fos_user_security_check") }}">
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                    <fieldset>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="{{ 'security.login.username'|trans }}" name="_username" type="text" value="{{ last_username }}" required="required" >
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="{{ 'security.login.password'|trans }}" name="_password" type="password"  required="required" >
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input name="_remember_me" value="on" type="checkbox" value="Remember Me">{{ 'security.login.remember_me'|trans }}
+                            </label>
+                        </div>
+                        <input class="btn btn-lg btn-success btn-block" type="submit"  id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}">
+                    </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+{% endblock fos_user_content %}

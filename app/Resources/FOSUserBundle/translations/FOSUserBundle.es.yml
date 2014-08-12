@@ -1,0 +1,122 @@
+# Group
+group:
+    edit:
+        submit: Actualizar grupo
+    show:
+        name: Nombre de grupo
+    new:
+        submit: Crear grupo
+    flash:
+        updated: El grupo ha sido actualizado
+        created: El grupo ha sido creado
+        deleted: El grupo ha sido borrado
+
+# Security
+"Bad credentials": Nombre de usuario o Contraseña inválido
+
+security:
+    login:
+        username: "Nombre de usuario:"
+        tuusuario: "Elige un nombre de usuario"        
+        password: "Contraseña:"
+        
+        remember_me: Recordar
+        tuemail: "Tu dirección de email"        
+        submit: Entrar
+        identificate: "Identifícate con tu usuario"
+        forgot: "¿Has olvidado tu contraseña?"
+
+# Profile
+profile:
+    show:
+        username: Nombre de usuario
+        email: Email
+    edit:
+        submit: Actualizar usuario
+    flash:
+        updated: El perfil ha sido actualizado
+
+# Password change
+change_password:
+    submit: Cambiar contraseña
+    flash:
+        success: La contraseña se ha cambiado con éxito
+
+# Registration
+registration:
+    check_email: Se ha enviado un email a %email%. Contiene un enlace de activación que debes presionar para activar tu cuenta.
+    confirmed: Felicidades %username%, tu cuenta está ahora confirmada.
+    ahora: Ahora ya puedes
+    inmobiliaria: Crear tu Inmobiliaria
+    back: Volver a la página original.
+    submit: <span>Crear una cuenta y </span><span class="strong">Unirse a B2y ahora</span>
+    flash:
+        user_created: El usuario se ha creado satisfactoriamente
+    email:
+        subject: Bienvenido %username%!
+        message: |
+            Hola %username%!
+
+            Para completar la validación de tu cuenta - por favor visita %confirmationUrl%
+
+            Atentamente,
+            el Equipo.
+
+# Password resetting
+resetting:
+    password_already_requested: La contraseña para este usuario ya ha sido solicitada dentro de las 24 horas.
+    check_email: Un email ha sido enviado a %email%. Contiene un enlace de activación que debes presionar para restablecer tu contraseña.
+    request:
+        invalid_username: El usuario o dirección de correo "%username%" no existe.
+        username: "Nombre de usuario:"
+        submit: Restablecer contraseña
+    reset:
+        submit: Cambiar contraseña
+    flash:
+        success: La contraseña se ha cambiado con éxito
+    email:
+        subject: Bienvenido %username%!
+        message : |
+            Hola %username%!
+
+            Para restablecer tu contraseña - por favor visita %confirmationUrl%
+
+            Atentamente,
+            el Equipo.
+
+# Global strings
+layout:
+    or: o
+    logout: Salir
+    login: Entra
+    register: registro
+    crear: Crear una cuenta
+    yausuario: ¿Ya eres usuario?
+    logged_in_as: Identificado como %username%
+    members: miembros
+    help: 
+        tienes: ¿Tienes problemas?
+        get: Obten ayuda
+# Form field labels
+form:
+    group_name: "Nombre de grupo:"
+    username: "Nombre de usuario:"
+    email: "Email:"
+    current_password: "Contraseña actual:"
+    password: "Contraseña:"
+    password_confirmation: "Repite la contraseña:"
+    password_confirmationtu: "Repite tu contaseña"
+    new_password: "Nueva contraseña:"
+    new_password_confirmation: "Repite la contraseña:"
+    nombre: "Nombre:"
+    nombretu: "Tu nombre"
+    apellidos: "Apellidos:"
+    appeludostu: "Tus apellidos"
+    telefono:
+        movil: "Teléfono móvil:"
+        moviltu: "666123456"
+    inmobiliaria: "Inmobiliaria:"
+    inmobiliariatu: "El nombre de tu inmobiliaria"
+    country: "País:"
+    email_confirmation: "Repetie tu Email:"
+    emailmismatch: "Los dos correos no coinciden"

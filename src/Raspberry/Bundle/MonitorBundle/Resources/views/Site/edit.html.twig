@@ -1,0 +1,39 @@
+{% extends '::base.html.twig' %}
+
+{% block head_scripts %}
+    {{ parent() }}
+
+    <script language="javascript" type="text/javascript" src="{{ asset('/bundles/raspberrymonitor/js/bootstrap-select.min.js') }}"></script>
+
+{% endblock head_scripts %}
+
+{% block head_styles %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/raspberrymonitor/css/bootstrap-select.min.css') }}" />
+{% endblock head_styles %}
+
+
+{% block bottom_scripts %}
+    <script type="text/javascript">
+
+        $(function() {
+            $('.selectpicker').selectpicker();
+        });
+    </script>
+{% endblock bottom_scripts %}
+
+{% block content -%}
+    <h1>Site edit</h1>
+    <div class="text-right">
+    <a href="{{ path('admin_site') }}" class="btn btn-default">
+      <i class="fa fa-arrow-left"></i> Back to the list
+    </a></div>
+    <p></p>
+    {% form_theme edit_form 'RaspberryMonitorBundle:Form:fields.html.twig' %}
+    {{ form(edit_form) }}
+
+
+<div class="text-right">
+   {{ form(delete_form) }}
+</div>
+{% endblock %}

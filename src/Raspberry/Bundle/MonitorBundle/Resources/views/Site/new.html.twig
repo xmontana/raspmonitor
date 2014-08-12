@@ -1,0 +1,15 @@
+{% extends '::base.html.twig' %}
+
+{% block content -%}
+    {% form_theme form 'RaspberryMonitorBundle:Form:fields.html.twig' %}
+    <h1>Site creation</h1>
+    <div class="text-right">
+        <a href="{{ path('admin_site') }}" class="btn btn-default">
+            <i class="fa fa-arrow-left"></i> Back to the list
+        </a></div>
+    <p></p>
+
+    {{ form(form) }}
+
+
+{% endblock %}

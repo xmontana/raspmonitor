@@ -1,0 +1,101 @@
+{% extends "::base.html.twig" %}
+
+{% block head_scripts %}
+    {{ parent() }}
+    <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="{{ asset('/bundles/raspberrymonitor/js/flot/excanvas.min.js') }}"></script><![endif]-->
+    <script language="javascript" type="text/javascript" src="{{ asset('/bundles/raspberrymonitor/js/flot//jquery.flot.js') }}"></script>
+
+{% endblock head_scripts %}
+
+{% block head_styles %}
+    {{ parent() }}
+    <style>
+        .grafica {
+            box-sizing: border-box;
+
+            height: 300px;
+            padding: 20px 15px 15px 15px;
+            margin: 15px auto 30px auto;
+            border: 1px solid #ddd;
+            background: #fff;
+            background: linear-gradient(#f6f6f6 0, #fff 50px);
+            background: -o-linear-gradient(#f6f6f6 0, #fff 50px);
+            background: -ms-linear-gradient(#f6f6f6 0, #fff 50px);
+            background: -moz-linear-gradient(#f6f6f6 0, #fff 50px);
+            background: -webkit-linear-gradient(#f6f6f6 0, #fff 50px);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+            -o-box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            -ms-box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            -moz-box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            -webkit-box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+    </style>
+{% endblock head_styles %}
+{% block content %}
+    <div class="row">
+        <div class="col-xs-12">
+            <h1>{{ site.name }}</h1>
+        </div>
+
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title"><i class="fa fa-signal"></i> {{ 'Server Status'|trans }}</h3>
+        </div>
+        <div class="panel-body">
+            <div id="placeholder" class="grafica"></div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block bottom_scripts %}
+    <script type="text/javascript">
+
+    $(function() {
+
+
+        var options = {
+            lines: {
+                show: true
+            },
+            points: {
+                show: true
+            }
+
+        };
+
+        var data = [];
+        $.plot("#placeholder", data, options);
+
+        var dataurl = '{{ path('api_time', {id: app.request.get('id') }) }}';
+
+        function onDataReceived(series) {
+
+
+            // Extract the first coordinate pair; jQuery has parsed it, so
+            // the data is now just an ordinary JavaScript object
+
+
+
+            $.plot("#placeholder", [series], options);
+        }
+
+        var doStuff= function (){
+            $.ajax({
+                url: dataurl,
+                type: "GET",
+                dataType: "json",
+                success: onDataReceived
+            });
+        }
+        doStuff();
+
+        setInterval( doStuff, 60000 );
+
+
+    });
+
+</script>
+
+
+{% endblock bottom_scripts %}

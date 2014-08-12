@@ -1,0 +1,16 @@
+{% extends "::base.html.twig" %}
+
+{% block content %}
+    <h1>{{ 'Alarms'|trans }}</h1>
+    <div class="panel panel-default panel-group">
+        <div class="panel-heading" data-toggle="collapse" data-target="#collapseOne" style="cursor: pointer;"><i class="fa fa-search"></i> {{ 'Search'|trans }}</div>
+        <div id="collapseOne" class="panel-collapse collapse ">
+            <div class="panel-body">
+                {{ grid_search (grid, 'RaspberryMonitorBundle:grid:blocks.html.twig') }}
+            </div>
+        </div>
+    </div>
+
+    <p></p>
+    {{ grid(grid, 'RaspberryMonitorBundle:grid:blocks.html.twig') }}
+{% endblock content %}

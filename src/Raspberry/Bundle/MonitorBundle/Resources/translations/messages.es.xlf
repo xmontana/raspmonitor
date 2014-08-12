@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="es" datatype="plaintext" original="file.ext">
+    <body>
+      <trans-unit id="301d574ef42563b03638c8eae19225cb" resname="Alarms">
+        <source>Alarms</source>
+        <target>Alarmas</target>
+      </trans-unit>
+      <trans-unit id="13348442cc6a27032d2b4aa28b75a5d3" resname="Search">
+        <source>Search</source>
+        <target>Búsqueda</target>
+      </trans-unit>
+      <trans-unit id="bd09422fd9b06f731b35c0011ef3012d" resname="Server Status">
+        <source>Server Status</source>
+        <target>Estado de servidores</target>
+      </trans-unit>
+      <trans-unit id="ec53a8c4f07baed5d8825072c89799be" resname="Status">
+        <source>Status</source>
+        <target>Estado</target>
+      </trans-unit>
+      <trans-unit id="a7d6475ec8993b7224d6facc8cb0ead6" resname="Site">
+        <source>Site</source>
+        <target>Sitio</target>
+      </trans-unit>
+      <trans-unit id="5ef0c737746fae2ca90e66c39333f8f6" resname="Errors">
+        <source>Errors</source>
+        <target>Errores</target>
+      </trans-unit>
+      <trans-unit id="b69c545e81ae20ea472c7cd426d5ad6d" resname="Last Check">
+        <source>Last Check</source>
+        <target>Última comprobación</target>
+      </trans-unit>
+      <trans-unit id="06df33001c1d7187fdd81ea1f5b277aa" resname="Actions">
+        <source>Actions</source>
+        <target>Acciones</target>
+      </trans-unit>
+      <trans-unit id="b2d37ae1cedf42ff874289b721860af2" resname="Logs">
+        <source>Logs</source>
+        <target>Logs</target>
+      </trans-unit>
+      <trans-unit id="01fda57aa6c7e9f07f5aa36b108e95cb" resname="Order by">
+        <source>Order by</source>
+        <target>Ordenador por</target>
+      </trans-unit>
+      <trans-unit id="526d688f37a86d3c3f27d0c5016eb71d" resname="Reset">
+        <source>Reset</source>
+        <target>Borrar</target>
+      </trans-unit>
+      <trans-unit id="6680172e58df17ba5e6c28f83979dded" resname="%count% Results,">
+        <source>%count% Results,</source>
+        <target>Resultados %count%,</target>
+      </trans-unit>
+      <trans-unit id="193cfc9be3b995831c6af2fea6650e60" resname="Page">
+        <source>Page</source>
+        <target>Página</target>
+      </trans-unit>
+      <trans-unit id="bf170f7a0d7ff3449d059d19c75debea" resname="of %count%">
+        <source>of %count%</source>
+        <target>de %count%</target>
+      </trans-unit>
+      <trans-unit id="d8b08c8e65e69dbc2ce37558e0041a09" resname=", Display">
+        <source>, Display</source>
+        <target>, Mostrar</target>
+      </trans-unit>
+      <trans-unit id="aaaa3c0a0086a0eedaf3350d3cfe92c1" resname="Items per page">
+        <source>Items per page</source>
+        <target>Elementos por páginae</target>
+      </trans-unit>
+      <trans-unit id="e3bb931d54e1bd5b6cbb2362252b6b37" resname="Select visible">
+        <source>Select visible</source>
+        <target>Selecciona visibles</target>
+      </trans-unit>
+      <trans-unit id="b88fbec3c80c4e264c9216cfeddf59d6" resname="Deselect visible">
+        <source>Deselect visible</source>
+        <target>Deselecciona visibles</target>
+      </trans-unit>
+      <trans-unit id="4c41e0bd957698b58100a5c687d757d9" resname="Select all">
+        <source>Select all</source>
+        <target>Selecciona todos</target>
+      </trans-unit>
+      <trans-unit id="52e3ce2bc983012661c3c11fe8b0f8ce" resname="Deselect all">
+        <source>Deselect all</source>
+        <target>Deselecciona todos</target>
+      </trans-unit>
+      <trans-unit id="004bf6c9a40003140292e97330236c53" resname="Action">
+        <source>Action</source>
+        <target>Acción</target>
+      </trans-unit>
+      <trans-unit id="13391c3a48eb0aa029a7ef159132126e" resname="Submit Action">
+        <source>Submit Action</source>
+        <target>Envia Acción Action</target>
+      </trans-unit>
+      <trans-unit id="0095a9fa74d1713e43e370a7d7846224" resname="Export">
+        <source>Export</source>
+        <target>Exporta</target>
+      </trans-unit>
+      <trans-unit id="cc6834c94504290bfbc8b02eaa6f84b2" resname="Tweaks">
+        <source>Tweaks</source>
+        <target>Ajustes</target>
+      </trans-unit>
+      <trans-unit id="a4e46f14874511e901aa2360aadfb7a9" resname="Tweak">
+        <source>Tweak</source>
+        <target>Ajuste</target>
+      </trans-unit>
+      <trans-unit id="5f075ae3e1f9d0382bb8c4632991f96f" resname="Go">
+        <source>Go</source>
+        <target>Ir</target>
+      </trans-unit>
+      <trans-unit id="5fb4f45dee4658d2fd792c07a938db8e" resname="Selected _s_ rows">
+        <source>Selected _s_ rows</source>
+        <target>Selecciona _s_ filas</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
