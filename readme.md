@@ -79,7 +79,7 @@ For setting the correct filesystem write permissions (apache user and console us
 -----------------------------------
 
 You will need to configure 2 cron tasks, one for the check, and other one to purge the logs
-older than 1 week (raspberry will be very slow to access LOG table with 1 week of recors):
+older than 1 day (raspberry will be very slow to access LOG table with 1 day of recors):
 
 
     * * * * * /var/www/vhosts/raspmonitor/app/console raspberry:monitor:check -q
@@ -137,6 +137,7 @@ Other Symfony2 Bundles are under the owner's LICENSE:
    misd/guzzle-bundle
    apy/datagrid-bundle
 
+Theme Deep Blue Admin dashboard by http://www.prepbootstrap.com/
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,

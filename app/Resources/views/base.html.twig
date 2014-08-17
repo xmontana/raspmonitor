@@ -51,7 +51,9 @@
                 <li><a href="{{ path('admin_site') }}"><i class="fa fa-gear"></i> {{ 'Config'|trans }}</a></li>
 
             </ul>
-            <ul class="nav navbar-nav navbar-right navbar-user">
+
+            <ul class="nav navbar-nav navbar-right ">
+                <li><a href="#" data-toggle="tooltip" data-placement="bottom" title="CPU Temp / Load"><i class="fa fa-fire"></i> <span id="pi_temp">- &deg;C</span> &nbsp; &nbsp; <i class="fa fa-tachometer"></i> <span id="pi_load">-</span></a></li>
 
                 <li class="dropdown user-dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{ app.user }}<b class="caret"></b></a>
@@ -73,6 +75,35 @@
 </div>
 {% block bottom_scripts %}
 {% endblock bottom_scripts %}
+
+    <script type="text/javascript">
+
+            $(function() {
+
+                $('[data-toggle="tooltip"]').tooltip();
+
+                var dataurl = '{{ path('api_pi') }}';
+                function onDataReceived(series) {
+                   $('#pi_temp').html(series.temp+' &deg;C');
+                   $('#pi_load').html(series.cpu.join(' / '));
+
+                }
+                var rpi_info= function (){
+                    $.ajax({
+                        url: dataurl,
+                        type: "GET",
+                        dataType: "json",
+                        success: onDataReceived
+                    });
+                }
+                rpi_info();
+                setInterval( rpi_info, 33000 );
+
+
+            });
+
+
+</script>
 </body>
 </html>
 

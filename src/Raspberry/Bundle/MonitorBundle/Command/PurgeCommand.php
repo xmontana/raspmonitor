@@ -25,7 +25,7 @@ class PurgeCommand extends ContainerAwareCommand
 
         $q->delete('RaspberryMonitorBundle:Log','u')
             ->where($q->expr()->lt('u.createdAt', ':createdat'))
-            ->setParameter('createdat',  new \Datetime('-1 week'));
+            ->setParameter('createdat',  new \Datetime('-1 day'));
 
         $q->getQuery()->execute();
 

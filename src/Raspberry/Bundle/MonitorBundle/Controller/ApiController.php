@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
+use PhpGpio\Pi;
 
 /**
  * @Route("/api")
@@ -113,6 +114,30 @@ class ApiController extends Controller
         }
 
         $response = new JsonResponse($res );
+        $response->headers->set('Content-Type', 'application/json');
+
+        return $response;
+
+    }
+
+    /**
+     *
+     * Return Temp and CPU load of the RPI
+     *
+     * @Route("/pi",  name="api_pi")
+     * @return JsonResponse
+     */
+
+    public function getPiAction()
+    {
+        $pi = new Pi();
+
+        $response = new JsonResponse();
+        $response->setData(array (
+            'temp' => number_format($pi->getCpuTemp(),2),
+            'cpu' => $pi->getCpuLoad(),
+
+        ));
         $response->headers->set('Content-Type', 'application/json');
 
         return $response;
