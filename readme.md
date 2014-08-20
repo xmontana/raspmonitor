@@ -19,7 +19,7 @@ You will need al latest PHP 5.3.3. and a database driver. Raspmonitor is compati
 
 Clone the repository:
 
-    git clone git@github.com:xmontana/raspmonitor.git
+    git clone https://github.com/xmontana/raspmonitor.git
 
 Download/install Composer (https://getcomposer.org/download/)
 
@@ -29,7 +29,7 @@ Download/install Composer (https://getcomposer.org/download/)
 At the end of the installation script you will ask for the raspmonitor
 config parameters (database, email account for sending alerts...)
 
-Check Symfony2 compatibility with your sistem:
+Check Symfony2 compatibility with your system:
 
     php app/check.php
 
@@ -119,23 +119,23 @@ under a Creative Commons Attribution 4.0 International License.
 
 You can:
 
-  Share — copy and redistribute the material in any medium or format
-  Adapt — remix, transform, and build upon the material
-  for any purpose, even commercially.
-  The licensor cannot revoke these freedoms as long as you follow the license terms.
+    Share — copy and redistribute the material in any medium or format
+    Adapt — remix, transform, and build upon the material
+    for any purpose, even commercially.
+    The licensor cannot revoke these freedoms as long as you follow the license terms.
 
 Under the following terms:
 
-  Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made.
+    Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made.
 
-Symfony2 is released under the MIT license. Copyright (c) 2004-2014 Fabien Potencier
+Symfony2 is released under the MIT license. Copyright (c) 2004-2014 Fabien Potencier.
 
 Other Symfony2 Bundles are under the owner's LICENSE:
 
-   friendsofsymfony/user-bundle
-   ronanguilloux/php-gpio
-   misd/guzzle-bundle
-   apy/datagrid-bundle
+* friendsofsymfony/user-bundle
+* ronanguilloux/php-gpio
+* misd/guzzle-bundle
+* apy/datagrid-bundle
 
 Theme Deep Blue Admin dashboard by http://www.prepbootstrap.com/
 

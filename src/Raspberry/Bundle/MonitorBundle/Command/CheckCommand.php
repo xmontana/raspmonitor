@@ -140,10 +140,32 @@ class CheckCommand extends ContainerAwareCommand
                         $output->writeln(sprintf("<info>Error ocurred: site %s failed %d times</info>: %s", $site->getName(), $site->getErrors(), $e->getResponse()->getStatusCode()));
                     } elseif ($site->getErrors() == $threshold ) {
                         // TODO: enciende LED ROJO
-                        // TODO: envia email de alerta
+
                         $rows[]=array($log->getCreatedAt()->format('d/m/Y h:i:s'), $site->getName(), '<error>ALERT</error>');
                         $output->writeln(sprintf("<error>Alert Activated: %s </error>", $site->getName()));
-                        //$this->activateAlert($output, $site);
+                        // envia email de alerta
+                        try {
+                            $message = new \Swift_Message();
+                            $message->setSubject('[Raspmonitor] Alert - '.$site->getName())
+                                ->setFrom($this->getContainer()->getParameter('alert_from_email'))
+                                ->setTo($this->getContainer()->getParameter('alert_to_email'))
+                                ->setBody(
+                                    $this->getContainer()->get('templating')->render(
+                                        'RaspberryMonitorBundle:Email:alert.txt.twig',
+                                        array('site' => $site)
+                                    )
+                                );
+
+                            $mailer = $this->getContainer()->get('mailer');
+                            $mailer->send($message);
+                            $spool = $mailer->getTransport()->getSpool();
+                            $transport = $this->getContainer()->get('swiftmailer.transport.real');
+
+                            $spool->flushQueue($transport);
+                        } catch (\Exception $e) {
+                            $output->writeln('error envio de email!');
+
+                        }
                     } elseif ($site->getErrors() > $threshold ) {
                         $rows[]=array($log->getCreatedAt()->format('d/m/Y h:i:s'), $site->getName(), '<error>DOWN</error>');
                         $output->writeln(sprintf("<error>Site %s down for %d times</error>: %s", $site->getName(), $site->getErrors(), $e->getResponse()->getStatusCode()));
@@ -169,22 +191,6 @@ class CheckCommand extends ContainerAwareCommand
 
     }
 
-    /**
-     *
-     * Alter function
-     *
-     * @param OutputInterface $output
-     * @param Site            $site
-     */
-    public function activateAlert(OutputInterface $output, Site $site)
-    {
-        $output->writeln(sprintf("<error>Alert Activated: %s </error>", $site->getName()));
 
-        /// TODO: Envia email
-
-        /// TODO: enciende LED ROJO
-
-
-    }
 
 }

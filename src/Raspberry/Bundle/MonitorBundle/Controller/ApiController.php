@@ -10,7 +10,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
-use PhpGpio\Pi;
 
 /**
  * @Route("/api")
@@ -130,13 +129,31 @@ class ApiController extends Controller
 
     public function getPiAction()
     {
-        $pi = new Pi();
+        $temperature = "";
+        $cpu = "";
 
+        if (function_exists('sys_getloadavg')) {
+               try {
+                $cpu = @sys_getloadavg();
+                } catch (\Exception $e) {
+                   return false;
+               }
+         }
+
+        try {
+            $t=@file_get_contents('/sys/class/thermal/thermal_zone0/temp');
+            if ($t === FALSE) {
+                $temperature = "";
+            } else {
+                $temperature = number_format(floatval($t)/1000,2);
+            }
+        } catch (\Exception $e) {
+            return false;
+        }
         $response = new JsonResponse();
         $response->setData(array (
-            'temp' => number_format($pi->getCpuTemp(),2),
-            'cpu' => $pi->getCpuLoad(),
-
+            'temp' => $temperature,
+            'cpu' => $cpu,
         ));
         $response->headers->set('Content-Type', 'application/json');
 
