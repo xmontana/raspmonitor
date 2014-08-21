@@ -35,12 +35,12 @@
         <ul class="record_actions">
     <li>
         <a href="{{ path('admin_site') }}">
-            Back to the list
+            {{ 'Back to the list'|trans }}
         </a>
     </li>
     <li>
         <a href="{{ path('admin_site_edit', { 'id': entity.id }) }}">
-            Edit
+            {{ 'Edit'|trans }}
         </a>
     </li>
     <li>{{ form(delete_form) }}</li>

@@ -1,0 +1,17 @@
+parameters:
+    database_driver:   pdo_mysql
+    database_host:     127.0.0.1
+    database_port:     ~
+    database_name:     raspmonitor
+    database_user:     root
+    database_password: ~
+
+    mailer_transport:  gmail
+    mailer_user:       ~
+    mailer_password:   ~
+
+    alert_from_email:  myemail@domain.com
+    alert_to_email:    myemail@domain.com
+
+    locale:            en
+    secret:            ThisTokenIsNotSoSecretChangeIt

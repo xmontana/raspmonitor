@@ -1,6 +1,11 @@
 RASPMONITOR
 ========================
 
+
+[![Build Status](https://api.travis-ci.org/xmontana/raspmonitor.svg?branch=master)](https://travis-ci.org/xmontana/raspmonitor)
+
+
+
 RASPMONITOR is simple website monitor that checks if a group of webservers are working.
 It's intended to use with a Raspberry Pi computer, but you can install in any
 computer compatible with PHP. You can find more info at my blog http://mundoexterno.wordpress.com

@@ -191,6 +191,4 @@ class CheckCommand extends ContainerAwareCommand
 
     }
 
-
-
 }

@@ -110,6 +110,18 @@
         <source>Selected _s_ rows</source>
         <target>Selected _s_ rows</target>
       </trans-unit>
+      <trans-unit id="92d4a363704e8e4ebc8e90cbbf1377f8" resname="Create a new">
+        <source>Create a new</source>
+        <target>Create a new site</target>
+      </trans-unit>
+      <trans-unit id="07fc7dc79c8046bb36d97b4332dab1ca" resname="Back to the list">
+        <source>Back to the list</source>
+        <target>Back to the list</target>
+      </trans-unit>
+      <trans-unit id="7dce122004969d56ae2e0245cb754d35" resname="Edit">
+        <source>Edit</source>
+        <target>Edit</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
