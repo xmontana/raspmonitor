@@ -117,7 +117,6 @@ class CheckCommand extends ContainerAwareCommand
 
                         }
 
-                        //$this->activateAlert($output, $site);
                     } elseif ($site->getErrors() > $threshold ) {
                         $rows[]=array($log->getCreatedAt()->format('d/m/Y h:i:s'), $site->getName(), '<error>DOWN</error>');
                         $output->writeln(sprintf("<error>Site %s down for %d times</error>: %s", $site->getName(), $site->getErrors(), $e->getError()));
@@ -143,6 +142,13 @@ class CheckCommand extends ContainerAwareCommand
 
                         $rows[]=array($log->getCreatedAt()->format('d/m/Y h:i:s'), $site->getName(), '<error>ALERT</error>');
                         $output->writeln(sprintf("<error>Alert Activated: %s </error>", $site->getName()));
+                        $alarma= new Alarm();
+                        $alarma->setSite($site);
+                        $alarma->setMessage( $e->getResponse());
+                        $alarma->setError($e->getResponse()->getStatusCode());
+                        $em->persist($alarma);
+                        unset($alarm);
+
                         // envia email de alerta
                         try {
                             $message = new \Swift_Message();
