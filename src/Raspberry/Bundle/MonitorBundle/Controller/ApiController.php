@@ -94,7 +94,6 @@ class ApiController extends Controller
 
         $encoders = array( new JsonEncoder());
         $normalizers = array(new GetSetMethodNormalizer());
-        $serializer = new Serializer($normalizers, $encoders);
 
         $em = $this->getDoctrine()->getManager();
 

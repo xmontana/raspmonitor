@@ -4,6 +4,7 @@ RASPMONITOR
 
 [![Build Status](https://api.travis-ci.org/xmontana/raspmonitor.svg?branch=master)](https://travis-ci.org/xmontana/raspmonitor)
 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/xmontana/raspmonitor/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/xmontana/raspmonitor/?branch=master)
 
 
 RASPMONITOR is simple website monitor that checks if a group of webservers are working.

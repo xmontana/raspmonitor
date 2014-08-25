@@ -4,6 +4,7 @@ namespace Raspberry\Bundle\MonitorBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use APY\DataGridBundle\Grid\Mapping as GRID;
+use \Raspberry\Bundle\MonitorBundle\Entity\Site;
 
 /**
  * Alarm
@@ -33,9 +34,9 @@ class Alarm
     private $createdAt;
 
     /**
-     * @var Raspberry\Bundle\MonitorBundle\Entity\Site
+     * @var Site
      *
-     * @ORM\ManyToOne(targetEntity="Raspberry\Bundle\MonitorBundle\Entity\Site")
+     * @ORM\ManyToOne(targetEntity="Site")
      * @ORM\JoinColumn(name="site_id", referencedColumnName="id")
      * @GRID\Column(field="site.name", title="Site Name", operatorsVisible=false, searchOnClick= true, filter="select",  selectFrom="source")
      */
@@ -150,10 +151,10 @@ class Alarm
     /**
      * Set site
      *
-     * @param  \Raspberry\Bundle\MonitorBundle\Entity\Site $site
+     * @param  Site $site
      * @return Alarm
      */
-    public function setSite(\Raspberry\Bundle\MonitorBundle\Entity\Site $site = null)
+    public function setSite(Site $site = null)
     {
         $this->site = $site;
 
@@ -163,7 +164,7 @@ class Alarm
     /**
      * Get site
      *
-     * @return \Raspberry\Bundle\MonitorBundle\Entity\Site
+     * @return Site
      */
     public function getSite()
     {
