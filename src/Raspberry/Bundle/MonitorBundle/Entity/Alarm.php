@@ -37,7 +37,7 @@ class Alarm
      * @var Site
      *
      * @ORM\ManyToOne(targetEntity="Site")
-     * @ORM\JoinColumn(name="site_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="site_id", referencedColumnName="id", onDelete="CASCADE")
      * @GRID\Column(field="site.name", title="Site Name", operatorsVisible=false, searchOnClick= true, filter="select",  selectFrom="source")
      */
     private $site;
